@@ -1,0 +1,26 @@
+{
+  "name": "douban-trailer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "nodemon server/index.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ollieSk8/douban-trailer.git"
+  },
+  "keywords": [
+    "douban",
+    "trailer"
+  ],
+  "author": "ollie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ollieSk8/douban-trailer/issues"
+  },
+  "homepage": "https://github.com/ollieSk8/douban-trailer#readme",
+  "dependencies": {
+    "koa": "^2.5.1"
+  }
+}
