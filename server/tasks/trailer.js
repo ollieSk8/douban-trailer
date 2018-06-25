@@ -1,13 +1,12 @@
 /**
- * Created by ollie on 2018/6/22.
+ * Created by ollie on 2018/6/25.
  */
-
 const child_process = require('child_process');
 
 const path = require('path');
 
 (async()=> {
-    const script = path.resolve(__dirname, '../crawler/trailer-list')
+    const script = path.resolve(__dirname, '../crawler/video')
     const child = child_process.fork(script, [])
 
     let invoked = false;
@@ -32,9 +31,9 @@ const path = require('path');
 
     child.on('message', (data)=> {
 
-        let result = data.result
+        //let result = data.result
 
-        console.log(result)
+        console.log(data)
     })
 
 })()
