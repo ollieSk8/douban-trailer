@@ -6,7 +6,11 @@ const child_process = require('child_process');
 
 const path = require('path');
 
-(async()=> {
+const mongoose = require('mongoose')
+
+const Movie =mongoose.model('Movie')
+
+;(async()=> {
     const script = path.resolve(__dirname, '../crawler/trailer-list')
     const child = child_process.fork(script, [])
 
@@ -33,8 +37,17 @@ const path = require('path');
     child.on('message', (data)=> {
 
         let result = data.result
+        //console.log(result)
+        result.forEach(async item => {
+            let movie = await Movie.findOne({
+                doubanId: item.doubanId
+            })
+            if (!movie) {
+                movie = new Movie(item)
 
-        console.log(result)
+                await movie.save()
+            }
+        })
     })
 
 })()
