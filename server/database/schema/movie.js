@@ -12,10 +12,10 @@ const movieSchema = new Schema({
         type: String,
         unique: true
     },
-    category: {
+    category: [{
         type: ObjectId,
         ref: 'Category'
-    },
+    }],
     rate: Number,
     title: String,
     summary: String,

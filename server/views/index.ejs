@@ -8,6 +8,36 @@
     <title>Document</title>
 </head>
 <body>
-    <%= you %> <%= me %>
+    <button id="btn">提交</button>
+    <script>
+
+        function postcall( url, params, target) {
+            var tempform = document.createElement("form");
+            tempform.action = url;
+            tempform.method = "post";
+            tempform.style.display = "none"
+            if (target) {
+                tempform.target = target;
+            }
+
+            for (var x in params) {
+                var opt = document.createElement("input");
+                opt.name = x;
+                opt.value = params[x];
+                tempform.appendChild(opt);
+            }
+
+            var opt = document.createElement("input");
+            opt.type = "submit";
+            tempform.appendChild(opt);
+            document.body.appendChild(tempform);
+            tempform.submit();
+            document.body.removeChild(tempform);
+        }
+        document.getElementById('btn').addEventListener('click',function () {
+            postcall( '/add', {page_num:1,page_size:10});
+        },false)
+
+    </script>
 </body>
 </html>
