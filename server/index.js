@@ -4,7 +4,7 @@ const app = new Koa()
 const {resolve} = require('path')
 const {connect,initSchemas} = require('./database/init')
 const mongoose = require('mongoose')
-const router = require('./routes/index')
+//const router = require('./routes/movie')
 const bodyParser = require('koa-bodyparser')
 ;(async()=> {
     await connect()
@@ -16,7 +16,7 @@ app.use(bodyParser())
 app.use(views(resolve(__dirname, './views'), {
     extension: 'ejs'
 }))
-app.use(router.routes()).use(router.allowedMethods())
+//app.use(router.routes()).use(router.allowedMethods())
 
 
 app.listen(3000);
